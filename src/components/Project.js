@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion, Reorder } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaArrowsAlt } from 'react-icons/fa';
 import LazyLoad from 'react-lazyload';
+import Image from 'next/image';
+
 
 const projects = [
   {
