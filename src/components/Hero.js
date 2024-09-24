@@ -25,10 +25,10 @@ const Hero = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl p-4 -mt-20">
+    <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl p-4 -mt-20 sm:p-0">
       <div className='flex items-center justify-between w-full lg:flex-col-reverse'>
         {/* Profile Info */}
-        <div className="w-full md:w-1/2 mb-8 md:mb-0 ml-10 lg:text-center">
+        <div className="w-full  mb-8 md:mb-0 ml-10 lg:text-center">
           <h1 className="text-6xl text-dark font-extrabold leading-tight mb-4 dark:text-light xl:!text-6xl lg:!text-center lg:!text-6xl md:!text-5xl sm:!text-5xl">
             {text.split('').map((char, i) => (
               <motion.span
@@ -50,7 +50,7 @@ const Hero = () => {
           >
             Web Developer & Software Engineer
           </motion.p>
-          <p className="text-lg mt-4 text-dark dark:text-light sm:text-base">
+          <p className="text-lg mt-4 text-dark dark:text-light sm:text-base w-full ">
             I specialize in building modern, high-performance web applications with a strong focus on user experience and functionality.
           </p>
 
