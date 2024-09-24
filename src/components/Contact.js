@@ -35,8 +35,8 @@ const Contact = () => {
   return (
     <>
       {/* Contact Button with Rotating Text */}
-      <div className="fixed bottom-14 left-6">
-        <div className="relative w-32 h-32"> {/* Increased container size */}
+      <div className="fixed bottom-14 left-6 md:right-8 md:left-auto md:top-0 md:bottom-auto">
+        <div className="relative w-32 h-32 md:h-24 md:w-24"> {/* Increased container size */}
           {/* Rotating text */}
           <motion.div
             className="absolute inset-0"
@@ -49,7 +49,7 @@ const Contact = () => {
                 d="M 50, 50 m -42, 0 a 42,42 0 1,1 84,0 a 42,42 0 1,1 -84,0"
                 fill="none"
               />
-              <text fill={textColor} fontSize="12" fontWeight="500" letterSpacing="0.8">
+              <text fill={textColor} fontSize="12" fontWeight="500" letterSpacing="0.8" className='md:hidden'>
                 <textPath href="#circlePath" startOffset="0%">
                   Web Developer • Software Developer • Web Developer • Software Developer •
                 </textPath>
@@ -59,14 +59,14 @@ const Contact = () => {
 
           {/* Circular Button */}
           <motion.button
-  className="absolute inset-0 m-auto bg-black text-white rounded-full w-20 h-20 font-bold flex flex-col items-center justify-center cursor-pointer dark:bg-slate-300"
+  className="absolute inset-0 m-auto bg-black text-white rounded-full w-20 h-20 font-bold flex flex-col items-center justify-center cursor-pointer dark:bg-slate-300 md:w-16 md:h-16"
   whileHover={{ scale: 1.05 }}
   whileTap={{ scale: 0.95 }}
   onClick={toggleModal}
 >
   <div className='dark:text-dark'>
-  <p className='leading-tight mt-2'>Contact</p>
-  <span>Me</span>
+  <p className='leading-tight mt-2 md:text-sm md:leading-none'>Contact</p>
+  <span className='md:text-sm'>Me</span>
   </div>
 </motion.button>
 
