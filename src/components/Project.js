@@ -96,7 +96,7 @@ const Project = () => {
                 }}
               >
                 <LazyLoad>
-                  <img src={project.image} alt={project.title} className="w-full h-56 object-cover sm:h-28" loading='lazy' />
+                  <Image src={project.image} alt={project.title} className="w-full h-56 object-cover sm:h-28" loading='lazy' />
                 </LazyLoad>
                 <div className="p-4 sm:p-2">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 sm:text-lg">
