@@ -57,7 +57,7 @@ const Hero = () => {
           {/* Call to Action Buttons */}
           <div className="mt-8 flex space-x-4 lg:space-x-4 sm:py-1 ml-0 self-start lg:justify-center">
             <motion.a
-              href="../../dummy.pdf"
+              href="https://drive.google.com/file/d/1JA-tWTNfHJocAkxssHZ1ZbUrqmfgY778/view?usp=drive_link"
               target="_blank"
               className="bg-yellow-400 text-gray-800 py-2 px-4 rounded-md text-lg font-medium hover:bg-yellow-300 transition duration-300 shadow-lg"
               whileHover={{ scale: 1.05 }}

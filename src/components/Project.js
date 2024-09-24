@@ -2,16 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { motion, Reorder } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaArrowsAlt } from 'react-icons/fa';
 
-// Projects Data
 const projects = [
   {
     id: 1,
-    title: "E-commerce Platform",
+    title: "MyDay",
     description: "A full-stack e-commerce solution with real-time inventory management and secure payment processing.",
-    image: "https://picsum.photos/seed/ecommerce/800/600",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe API"],
-    github: "https://github.com/yourusername/ecommerce-platform",
-    live: "https://your-ecommerce-platform.com"
+    image: "../../images/projects/m.png",
+    technologies: ["Node.js", "Express.js", "MongoDB", "JWT", "Ejs"],
+    github: "https://github.com/ayush-848/MyDay",
+    live: "https://myday-gklz.onrender.com/"
   },
   {
     id: 2,
@@ -24,21 +23,21 @@ const projects = [
   },
   {
     id: 3,
-    title: "Blog Platform",
+    title: "PixelCraft",
     description: "A blogging platform where users can create, edit, and delete their posts. Features include user authentication and real-time commenting.",
-    image: "https://picsum.photos/seed/blog/800/600",
-    technologies: ["Next.js", "MongoDB", "Express", "Socket.IO"],
-    github: "https://github.com/yourusername/blog-platform",
-    live: "https://your-blog-platform.com"
+    image: "../../images/projects/pixelcraft.png",
+    technologies: ["Next.js", "MongoDB", "Cloudinary API", "Clerk", "Stripe"],
+    github: "https://github.com/ayush-848/Pixel_Craft",
+    live: "https://pixelcraft-blush.vercel.app/"
   },
   {
     id: 4,
     title: "Portfolio Website",
     description: "A personal portfolio website showcasing my projects, skills, and contact information. Built with a modern design and responsive layout.",
-    image: "https://picsum.photos/seed/portfolio/800/600",
-    technologies: ["React", "Tailwind CSS", "Netlify"],
-    github: "https://github.com/yourusername/portfolio-website",
-    live: "https://your-portfolio-website.com"
+    image: "../../images/projects/portfolio_1.png",
+    technologies: ["Next Js", "Tailwind CSS", "Framer", "React icons"],
+    github: "https://github.com/ayush-848/Portfolio-1",
+    live: "https://portfolio-1-eta-six.vercel.app/"
   }
 ];
 
@@ -92,7 +91,7 @@ const Project = () => {
               style={{ listStyle: 'none', position: 'relative' }}
             >
               <motion.div
-                className="rounded-lg overflow-hidden shadow-lg transition-all transform hover:scale-105 backdrop-filter backdrop-blur-md bg-opacity-50 dark:bg-opacity-30 md:w-3/4 "
+                className="rounded-lg overflow-hidden shadow-lg transition-all transform hover:scale-105 backdrop-filter backdrop-blur-md bg-opacity-50 dark:bg-opacity-30 md:w-3/4"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.5 }}
                 layout
@@ -107,19 +106,19 @@ const Project = () => {
                   margin: '0 auto' // Center the card
                 }}
               >
-                <img src={project.image} alt={project.title} className="w-full h-44 object-cover sm:h-28" />
+                <img src={project.image} alt={project.title} className="w-full h-56 object-cover sm:h-28" />
                 <div className="p-4 sm:p-2">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 sm:text-lg">
                     {project.title}
                   </h3>
-                  <p className="mt-1 text-base text-gray-700 dark:text-gray-300 sm:text-sm">
+                  <p className="mt-1 text-base text-gray-700 dark:text-gray-300 sm:text-sm leading-tight">
                     {project.description}
                   </p>
-                  <div className="mt-4 flex flex-wrap gap-2">
+                  <div className="mt-4 flex flex-wrap gap-2 h-6 mb-12">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="inline-block text-gray-900 dark:text-gray-100 text-sm px-2 py-1 rounded-full sm:px-1 sm:py-0.5 sm:text-xs"
+                        className="inline-block text-gray-900 dark:text-gray-100 text-sm px-2 py-0.5 rounded-full sm:px-1 sm:py-0.5 sm:text-xs"
                         style={{
                           background: 'rgba(255, 215, 0, 0.1)',
                           border: '2px solid #FFD700',
@@ -134,7 +133,7 @@ const Project = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center bg-transparent border border-yellow-500 text-yellow-500 px-4 py-2 rounded-lg hover:bg-yellow-500 hover:text-white transition duration-200 ease-in-out sm:px-2 sm:py-1 sm:text-sm"
+                      className="flex items-center bg-transparent border border-yellow-500 text-yellow-500 px-4 py-1 rounded-lg hover:bg-yellow-500 hover:text-white transition duration-200 ease-in-out sm:px-2 sm:py-1 sm:text-sm"
                     >
                       <FaGithub className="mr-1" />
                       View Code
@@ -146,7 +145,7 @@ const Project = () => {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center bg-transparent border border-yellow-500 text-yellow-500 px-4 py-2 rounded-lg hover:bg-yellow-500 hover:text-white transition duration-200 ease-in-out sm:px-2 sm:py-1 sm:text-sm"
+                      className="flex items-center bg-transparent border border-yellow-500 text-yellow-500 px-4 py-1 rounded-lg hover:bg-yellow-500 hover:text-white transition duration-200 ease-in-out sm:px-2 sm:py-1 sm:text-sm"
                     >
                       <FaExternalLinkAlt className="mr-1" />
                       Live Demo
