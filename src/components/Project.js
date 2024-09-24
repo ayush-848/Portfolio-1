@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, Reorder } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaArrowsAlt } from 'react-icons/fa';
+import LazyLoad from 'react-lazyload';
 
 const projects = [
   {
@@ -43,62 +44,50 @@ const projects = [
 
 const Project = () => {
   const [items, setItems] = useState(projects);
+  const [isLargeScreen, setIsLargeScreen] = useState(true);
 
-  // Animation variants for the heading and project cards
-  const headingVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
+  // Detect the screen size
+  useEffect(() => {
+    const updateScreenSize = () => {
+      const screenWidth = window.innerWidth;
+      setIsLargeScreen(screenWidth >= 1024); // Only enable animations for xl and larger screens
+    };
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
+    updateScreenSize(); // Call on mount
+    window.addEventListener("resize", updateScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", updateScreenSize);
+    };
+  }, []);
 
   return (
     <div className="py-16" id="projects">
       <div className="max-w-4xl mx-auto px-2">
-        {/* Animated Heading */}
-        <motion.h2
-          className="text-5xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100"
-          variants={headingVariants}
-          initial="hidden"
-          whileInView="visible"
-          transition={{ duration: 0.5, delay: 0.3 }} // Add a slight delay for the heading
-          viewport={{ once: false, amount: 0.2 }} // Trigger when 20% of the heading is visible
+        {/* Heading without animation for smaller screens */}
+        <h2
+          className={`text-5xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100 ${isLargeScreen ? 'animate-fade' : ''}`}
         >
           My Projects
-        </motion.h2>
+        </h2>
 
         <Reorder.Group
           axis="y"
           values={items}
           onReorder={setItems}
           className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-8"
-          dragConstraints={false}
-          dragElastic={1}
+          drag={isLargeScreen} // Enable drag only for extra-large screens and above
         >
           {items.map((project) => (
             <Reorder.Item
               key={project.id}
               value={project}
               className="cursor-grab"
-              drag
-              dragConstraints={false}
-              dragElastic={1}
-              whileDrag={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              drag={isLargeScreen} // Enable drag only for large screens
               style={{ listStyle: 'none', position: 'relative' }}
             >
               <motion.div
-                className="rounded-lg overflow-hidden shadow-lg transition-all transform hover:scale-105 backdrop-filter backdrop-blur-md bg-opacity-50 dark:bg-opacity-30 md:w-3/4"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.5 }}
-                layout
-                initial="hidden"
-                whileInView="visible"
-                variants={cardVariants}
-                viewport={{ once: false, amount: 0.2 }} // Trigger when 20% of the card is visible
+                className={`rounded-lg overflow-hidden shadow-lg transition-all transform ${isLargeScreen ? 'hover:scale-105' : ''} backdrop-filter backdrop-blur-md bg-opacity-50 dark:bg-opacity-30 md:w-3/4`}
                 style={{
                   background: 'rgba(255, 255, 255, 0.05)',
                   backdropFilter: 'blur(5px)',
@@ -106,7 +95,9 @@ const Project = () => {
                   margin: '0 auto' // Center the card
                 }}
               >
-                <img src={project.image} alt={project.title} className="w-full h-56 object-cover sm:h-28" />
+                <LazyLoad>
+                  <img src={project.image} alt={project.title} className="w-full h-56 object-cover sm:h-28" loading='lazy' />
+                </LazyLoad>
                 <div className="p-4 sm:p-2">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 sm:text-lg">
                     {project.title}
@@ -139,7 +130,9 @@ const Project = () => {
                       View Code
                     </a>
 
-                    <FaArrowsAlt className="text-gray-500 cursor-grab mx-4 text-xl" />
+                    {isLargeScreen && (
+                      <FaArrowsAlt className="text-gray-500 cursor-grab mx-4 text-xl" />
+                    )}
 
                     <a
                       href={project.live}
