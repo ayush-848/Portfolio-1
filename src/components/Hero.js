@@ -76,7 +76,7 @@ const Hero = () => {
 
         {/* Profile Picture */}
         <motion.div
-          className="w-7/12 relative -mt-12 lg:hidden xl:block sm:block md:block md:w-6/12 md:mb-6 sm:w-10/12 md:mt-20 md:ml-8"
+          className="w-7/12 relative -mt-12 lg:block xl:block sm:block md:block md:w-6/12 md:mb-6 sm:w-10/12 md:mt-20 md:ml-8"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}

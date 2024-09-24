@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
+import useWindowSize from '@/hooks/useWindowSize';
 
 // Framer Motion Variants
 const skillVariants = {
@@ -36,7 +37,7 @@ const skills = [
   { name: 'GitHub', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
 ];
 
-// Adding display name to the SkillTag component
+// SkillTag Component
 const SkillTag = React.memo(function SkillTag({ skill, logo, index }) {
   return (
     <motion.div
@@ -73,11 +74,20 @@ const Skills = () => {
   const { ref, inView } = useInView({
     threshold: 0.2, // Triggers when 20% of the section is in view
   });
+  
+  // Use the custom hook to get window size
+  const { width } = useWindowSize();
+  const isWideScreen = width > 720; // Check if the screen width is greater than 720px
 
   useEffect(() => {
-    controls.start(inView ? "visible" : "hidden");
-    headingControls.start(inView ? "visible" : "hidden");
-  }, [controls, headingControls, inView]);
+    if (isWideScreen) {
+      controls.start(inView ? "visible" : "hidden");
+      headingControls.start(inView ? "visible" : "hidden");
+    } else {
+      controls.start("visible"); // Ensure skills are always visible on smaller screens
+      headingControls.start("visible");
+    }
+  }, [controls, headingControls, inView, isWideScreen]);
 
   return (
     <>
