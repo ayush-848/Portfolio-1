@@ -36,7 +36,8 @@ const skills = [
   { name: 'GitHub', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
 ];
 
-const SkillTag = React.memo(({ skill, logo, index }) => {
+// Adding display name to the SkillTag component
+const SkillTag = React.memo(function SkillTag({ skill, logo, index }) {
   return (
     <motion.div
       className="flex items-center bg-white rounded-lg px-3 py-2 shadow-lg m-3 transition-all transform hover:scale-105 hover:shadow-xl"
