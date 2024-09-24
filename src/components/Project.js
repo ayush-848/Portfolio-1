@@ -10,7 +10,7 @@ const projects = [
     id: 1,
     title: "MyDay",
     description: "A full-stack e-commerce solution with real-time inventory management and secure payment processing.",
-    image: "../../images/projects/m.png",
+    image: "https://i.imgur.com/0ielNeq.png",
     technologies: ["Node.js", "Express.js", "MongoDB", "JWT", "Ejs"],
     github: "https://github.com/ayush-848/MyDay",
     live: "https://myday-gklz.onrender.com/"
@@ -28,7 +28,7 @@ const projects = [
     id: 3,
     title: "PixelCraft",
     description: "A blogging platform where users can create, edit, and delete their posts. Features include user authentication and real-time commenting.",
-    image: "../../images/projects/pixelcraft.png",
+    image: "https://i.imgur.com/FeL9DRO.png",
     technologies: ["Next.js", "MongoDB", "Cloudinary API", "Clerk", "Stripe"],
     github: "https://github.com/ayush-848/Pixel_Craft",
     live: "https://pixelcraft-blush.vercel.app/"
@@ -37,7 +37,7 @@ const projects = [
     id: 4,
     title: "Portfolio Website",
     description: "A personal portfolio website showcasing my projects, skills, and contact information. Built with a modern design and responsive layout.",
-    image: "../../images/projects/portfolio_1.png",
+    image: "https://i.imgur.com/P0Vpjrs.png",
     technologies: ["Next Js", "Tailwind CSS", "Framer", "React icons"],
     github: "https://github.com/ayush-848/Portfolio-1",
     live: "https://portfolio-1-eta-six.vercel.app/"
@@ -52,7 +52,7 @@ const Project = () => {
   useEffect(() => {
     const updateScreenSize = () => {
       const screenWidth = window.innerWidth;
-      setIsLargeScreen(screenWidth >= 1024); // Only enable animations for xl and larger screens
+      setIsLargeScreen(screenWidth >= 720); // Only enable animations for xl and larger screens
     };
 
     updateScreenSize(); // Call on mount
@@ -77,7 +77,7 @@ const Project = () => {
           axis="y"
           values={items}
           onReorder={setItems}
-          className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 gap-8"
           drag={isLargeScreen} // Enable drag only for extra-large screens and above
         >
           {items.map((project) => (
@@ -98,7 +98,7 @@ const Project = () => {
                 }}
               >
                 <LazyLoad>
-                  <Image src={project.image} alt={project.title} className="w-full h-56 object-cover sm:h-28" loading='lazy' />
+                  <img src={project.image} alt={project.title} className="w-full h-56 object-cover sm:h-28" loading='lazy'/>
                 </LazyLoad>
                 <div className="p-4 sm:p-2">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 sm:text-lg">
