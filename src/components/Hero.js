@@ -55,7 +55,7 @@ const Hero = () => {
           </p>
 
           {/* Call to Action Buttons */}
-          <div className="mt-8 flex space-x-4 lg:space-x-4 sm:py-1 ml-0 self-start lg:justify-center">
+          <div className="mt-8 flex space-x-4 lg:space-x-4 sm:py-1 mr-2 self-start lg:justify-center">
             <motion.a
               href="https://drive.google.com/file/d/1JA-tWTNfHJocAkxssHZ1ZbUrqmfgY778/view?usp=drive_link"
               target="_blank"
