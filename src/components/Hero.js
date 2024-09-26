@@ -28,7 +28,7 @@ const Hero = () => {
     <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl p-4 -mt-20 sm:p-0">
       <div className='flex items-center justify-between w-full lg:flex-col-reverse'>
         {/* Profile Info */}
-        <div className="w-full  mb-8 md:mb-0 ml-10 lg:text-center">
+        <div className="w-full  mb-8 md:mb-0 ml-4 lg:text-center">
           <h1 className="text-6xl text-dark font-extrabold leading-tight mb-4 dark:text-light xl:!text-6xl lg:!text-center lg:!text-6xl md:!text-5xl sm:!text-5xl">
             {text.split('').map((char, i) => (
               <motion.span
@@ -76,7 +76,7 @@ const Hero = () => {
 
         {/* Profile Picture */}
         <motion.div
-          className="w-7/12 relative -mt-12 lg:block xl:block sm:block md:block md:w-6/12 md:mb-6 sm:w-10/12 md:mt-20 md:ml-8"
+          className="w-7/12 relative -mt-12 lg:block xl:block sm:block md:block md:w-6/12 md:mb-6 sm:w-10/12 md:mt-20 md:ml-4"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
